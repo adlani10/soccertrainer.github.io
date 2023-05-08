@@ -1,0 +1,76 @@
+body {
+  font-size: 40vw;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: white;
+}
+
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.orange {
+  background-color: orange;
+}
+
+#output {
+  font-size: 70vh; /* adjust this value to your liking */
+  margin: 0 auto; /* center the element horizontally */
+}
+
+#countdown {
+  font-size: 5vh;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px; /* change this to adjust the vertical spacing */
+}
+
+
+.slider-container label {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.slider-container input[type="range"] {
+  -webkit-appearance: none;
+  width: 200px;
+  height: 8px;
+  background-color: #d3d3d3;
+  border-radius: 5px;
+  margin-right: 10px;
+  outline: none;
+  position: relative;
+  top: -2px;
+}
+
+.slider-container input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #4CAF50;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider-value {
+  font-size: 20px;
+}
