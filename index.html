@@ -2,76 +2,37 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Random Number and Color</title>
-  <style>
-      body {
-        font-size: 70vh;
-        font-weight: bold;
-        font-family: sans-serif;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        color: white;
-      }
-      .green {
-        background-color: green;
-      }
-      .red {
-        background-color: red;
-      }
-      .blue {
-        background-color: blue;
-      }
-      .orange {
-        background-color: orange;
-      }
-      #countdown {
-        font-size: 3vh;
-      }
-
-      @media screen and (max-width: 768px) {
-        body {
-          font-size: 70vh;
-        }
-      }
-
-      @media screen and (min-width: 769px) {
-        body {
-          font-size: 70vh;
-        }
-      }
-    </style>
+  <title>Interval Trainer</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="output"></div>
 <div id="countdown"></div>
+<div class="slider-container">
+  <label for="interval-slider">Interval:</label>
+  <input type="range" id="interval-slider" name="interval-slider" min="5" max="10" value="5">
+  <span class="slider-value" id="interval-value">5s</span>
+</div>
+<div class="slider-container">
+  <label for="number-range-slider">Range:</label>
+  <input type="range" id="number-range-slider" name="number-range-slider" min="1" max="10" value="5">
+  <span class="slider-value" id="number-range-value">1-10</span>
+</div>
+<script src="script.js"></script>
 <script>
-      var timeLeft = 5;
+const intervalSlider = document.getElementById('interval-slider');
+const intervalValue = document.getElementById('interval-value');
+intervalSlider.addEventListener('input', function() {
+  const value = this.value;
+  intervalValue.innerText = `${value}s`;
+});
 
-      function displayNumberAndColor() {
-        var number = Math.floor(Math.random() * 5) + 1;
-        var colors = ['green', 'red', 'blue', 'orange'];
-        var color = colors[Math.floor(Math.random() * colors.length)];
-        document.body.className = color;
-        document.getElementById('output').innerHTML = number;
-      }
-
-      function countdown() {
-        if (timeLeft == 0) {
-          timeLeft = 5;
-          displayNumberAndColor();
-        } else {
-          document.getElementById("countdown").innerHTML = timeLeft + " seconds";
-          timeLeft--;
-        }
-
-  }
-
-  displayNumberAndColor(); // Display the initial number and color on page load
-  setInterval(countdown, 1000);
+const numberRangeSlider = document.getElementById('number-range-slider');
+const numberRangeValue = document.getElementById('number-range-value');
+numberRangeSlider.addEventListener('input', function() {
+  const value = this.value;
+  numberRangeValue.innerText = `1-${value}`;
+});
 </script>
 </body>
 </html>
