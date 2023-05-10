@@ -54,12 +54,10 @@ let isOpen = false;
 
 gearIcon.addEventListener('click', function() {
   isOpen = !isOpen;
-  menu.style.right = isOpen ? '0' : '-360px';
+  menu.style.right = isOpen ? '0' : '-100%';
   gearIcon.classList.toggle('open');
   gearIcon.innerHTML = isOpen ? '&times;' : '&#9881;';
 });
-
-
 
 
 displayNumberAndColor();
