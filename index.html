@@ -13,20 +13,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Interval Trainer</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-yjUpj7gApKei+6IZxH7XaFdA3mcL87nXIQ+FTwkmkrlsm9PCJe6WQhQRHED7JDTY0Uqs5CfwVafGq+le9mH2xw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
+<div id="gear-icon" class="open" onclick="toggleMenu()">&#9881;</div>
+<div id="menu">
+  <div class="sliders-wrapper">
+    <div class="slider-container">
+      <label for="interval-slider">Interval:</label>
+      <input type="range" id="interval-slider" name="interval-slider" min="5" max="10" value="5">
+      <span class="slider-value" id="interval-value">5s</span>
+    </div>
+    <div class="slider-container">
+      <label for="number-range-slider">Range: &nbsp</label>
+      <input type="range" id="number-range-slider" name="number-range-slider" min="1" max="10" value="5">
+      <span class="slider-value" id="number-range-value">1-5</span>
+    </div>
+  </div>
+</div>
 <div id="output"></div>
 <div id="countdown"></div>
-<div class="slider-container">
-  <label for="interval-slider">Interval:</label>
-  <input type="range" id="interval-slider" name="interval-slider" min="5" max="10" value="5">
-  <span class="slider-value" id="interval-value">5s</span>
-</div>
-<div class="slider-container">
-  <label for="number-range-slider">Range:</label>
-  <input type="range" id="number-range-slider" name="number-range-slider" min="1" max="10" value="5">
-  <span class="slider-value" id="number-range-value">1-10</span>
-</div>
+
+
 <script src="script.js"></script>
 <script>
 const intervalSlider = document.getElementById('interval-slider');
