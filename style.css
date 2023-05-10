@@ -11,6 +11,44 @@ body {
   color: white;
 }
 
+#gear-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 35px; /* Increase the font size as desired */
+  color: #000; /* Set the color to white */
+  cursor: pointer;
+  z-index: 9999;
+}
+
+#gear-icon.open::after {
+  color: #f5f5f5; /* Set the color to white */
+}
+
+#gear-icon.open {
+  color: #f5f5f5; /* Set the color to black when menu is open */
+}
+
+#gear-icon.open i {
+  font-size: 25px; /* Adjust the size as desired */
+}
+
+
+#menu {
+  position: fixed;
+  top: 0;
+  right: -360px; /* Initially hidden */
+  width: 360px;
+  height: 100vh;
+  background-color: #f5f5f5;
+  transition: right 0.3s ease-in-out;
+  z-index: 9998; /* Set a lower z-index than gear icon */
+}
+
+#menu.open {
+  right: 0; /* Displayed when menu is open */
+}
+
 .green {
   background-color: green;
 }
@@ -33,44 +71,54 @@ body {
 }
 
 #countdown {
-  font-size: 5vh;
+  font-size: 3vh;
 }
 
 .slider-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 20px; /* change this to adjust the vertical spacing */
+  gap: 20px; /* change this to adjust the spacing */
+  margin: 50px 30px 30px 30px; /* top right bottom left */
+
 }
 
+.sliders-wrapper {
+  margin-top: 30vh;
+}
 
 .slider-container label {
   display: inline-block;
   margin-right: 10px;
-  font-size: 20px;
+  font-size: 16px;
+  color: #000; /* Set the color to black */
 }
+
 
 .slider-container input[type="range"] {
   -webkit-appearance: none;
-  width: 200px;
+  width: 150px; /* Adjust the width as desired */
   height: 8px;
-  background-color: #d3d3d3;
+  background-color: #000;
   border-radius: 5px;
-  margin-right: 10px;
   outline: none;
-  position: relative;
-  top: -2px;
 }
 
 .slider-container input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   width: 20px;
   height: 20px;
-  background-color: #4CAF50;
+  background-color: #B3B6B7;
+  border: 2px solid #f5f5f5;
   border-radius: 50%;
   cursor: pointer;
 }
 
+.slider-container input[type="range"]::-webkit-slider-thumb:hover {
+  background-color: #7B7D7D;
+}
+
 .slider-value {
-  font-size: 20px;
+  font-size: 16px;
+  color: #333;
 }
