@@ -42,6 +42,25 @@ function countdown() {
   }
 }
 
+function toggleMenu() {
+  const menu = document.getElementById('menu');
+  menu.classList.toggle('open');
+}
+
+const gearIcon = document.getElementById('gear-icon');
+const menu = document.getElementById('menu');
+
+let isOpen = false;
+
+gearIcon.addEventListener('click', function() {
+  isOpen = !isOpen;
+  menu.style.right = isOpen ? '0' : '-360px';
+  gearIcon.classList.toggle('open');
+  gearIcon.innerHTML = isOpen ? '&times;' : '&#9881;';
+});
+
+
+
 
 displayNumberAndColor();
 setInterval(countdown, 1000);
