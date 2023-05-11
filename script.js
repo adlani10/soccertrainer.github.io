@@ -9,6 +9,31 @@ function getRandomNumber() {
   var max = parseInt(document.getElementById("number-range-slider").value);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+// Get the checkboxes and color classes
+const greenCheckbox = document.getElementById('green-checkbox');
+const redCheckbox = document.getElementById('red-checkbox');
+const blueCheckbox = document.getElementById('blue-checkbox');
+const orangeCheckbox = document.getElementById('orange-checkbox');
+
+const greenClass = 'green';
+const redClass = 'red';
+const blueClass = 'blue';
+const orangeClass = 'orange';
+
+// Function to apply selected colors
+function applySelectedColors() {
+  const body = document.body;
+  body.classList.toggle(greenClass, greenCheckbox.checked);
+  body.classList.toggle(redClass, redCheckbox.checked);
+  body.classList.toggle(blueClass, blueCheckbox.checked);
+  body.classList.toggle(orangeClass, orangeCheckbox.checked);
+}
+
+// Event listeners for checkbox changes
+greenCheckbox.addEventListener('change', applySelectedColors);
+redCheckbox.addEventListener('change', applySelectedColors);
+blueCheckbox.addEventListener('change', applySelectedColors);
+orangeCheckbox.addEventListener('change', applySelectedColors);
 
 function getRandomColor() {
   var colors = ['green', 'red', 'blue', 'orange'];
@@ -22,15 +47,43 @@ function getRandomColor() {
 
 function displayNumberAndColor() {
   number = getRandomNumber();
-  color = getRandomColor();
-  while (number === lastNumber && color === lastColor) {
-    number = getRandomNumber();
-    color = getRandomColor();
+  var selectedColors = [];
+
+  if (greenCheckbox.checked) {
+    selectedColors.push(greenClass);
   }
+  if (redCheckbox.checked) {
+    selectedColors.push(redClass);
+  }
+  if (blueCheckbox.checked) {
+    selectedColors.push(blueClass);
+  }
+  if (orangeCheckbox.checked) {
+    selectedColors.push(orangeClass);
+  }
+
+  if (selectedColors.length > 1) {
+    var randomIndex = Math.floor(Math.random() * selectedColors.length);
+    color = selectedColors[randomIndex];
+    while (number === lastNumber && color === lastColor) {
+      number = getRandomNumber();
+      randomIndex = Math.floor(Math.random() * selectedColors.length);
+      color = selectedColors[randomIndex];
+    }
+  } else if (selectedColors.length === 1) {
+    color = selectedColors[0];
+  } else {
+    color = '';
+  }
+
   lastNumber = number;
-  document.body.className = color;
+  lastColor = color;
+
+  const body = document.body;
+  body.className = color;
   document.getElementById('output').innerHTML = number;
 }
+
 
 function countdown() {
   if (timeLeft == 0) {
